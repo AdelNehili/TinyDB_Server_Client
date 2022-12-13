@@ -7,7 +7,12 @@ To clone/download:
 	
 TO update github:
 	git add *
+	git pull
+	git config pull.rebase false
+	
+	git commit -m
 	git push
-	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
+	
+		current project token : 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
 
 
