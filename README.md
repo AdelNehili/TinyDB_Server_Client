@@ -4,10 +4,11 @@ Command lines:
 To clone/download:
 	git clone -b Part2_Adel https://github.com/RedhwaneBS/TinyDB.git
 	
-	
+
+git pull //Update FROM github
 TO update github:
 	git add *
-	git pull
+
 	git config pull.rebase false
 	
 	git commit -m
