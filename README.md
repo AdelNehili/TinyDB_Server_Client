@@ -1,6 +1,6 @@
 # TinyDB
 
-git clone -b Part2_Adel https://github.com/RedhwaneBS/TinyDB.git
+git clone -b branch_name git_link
 
 Command lines:
   chmod 777 test.sh
