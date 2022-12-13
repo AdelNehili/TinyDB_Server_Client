@@ -2,19 +2,30 @@
 
 
 typedef struct thread_info {
-  pthread_t *thread_id; //Après on retire
+  pthread_t *thread_id;
   int* socket;
 }my_data;
 
 void *myThreadFun(void *vargp)
 {
-	//int fd = *(int *) thread_data;
-	//free(thread_data);
-	
-    //char *my_char = (char* )vargp;
+	char buffer[1024];
     my_data *current_data = (my_data *) vargp;
+    int newSocket = *(current_data->socket);
     
-	printf("Thread ID : %ld; Socket : %d \n", *(current_data->thread_id), *(current_data->socket));
+	printf("Thread ID : %ld; Socket : %d \n\n", *(current_data->thread_id), *(current_data->socket));
+
+		recv(newSocket, buffer, 1024, 0);
+		
+		if(strcmp(buffer, ":exit") == 0){
+			//printf("Disconnected from %s:%d\n", inet_ntoa(newAddr.sin_addr), ntohs(newAddr.sin_port));
+			printf("Ah cioasu my furendo! \n");
+			exit(1);
+		}else{
+			send(newSocket, buffer, strlen(buffer), 0);
+			bzero(buffer, sizeof(buffer));
+		}
+
+	printf("Hehehe Bye bye! \n");
 }
 
 int main(){
@@ -28,7 +39,7 @@ int main(){
 
 	socklen_t addr_size;
 
-	char buffer[1024];
+	char buffer_bis[1024];
 	pid_t childpid;
 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -63,9 +74,10 @@ int main(){
 		  printf("ERROR in accepting. \n");
 		  exit(1);
 		}
-		
 		printf("Connection accepted from %s:%d \n", inet_ntoa(newAddr.sin_addr), ntohs(newAddr.sin_port));
+		
 		pthread_t thread;
+		
 		int *my_newsock = malloc(sizeof(int));
 		*my_newsock = newSocket;
 		my_data data = {&thread, my_newsock};

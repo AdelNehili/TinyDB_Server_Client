@@ -9,4 +9,4 @@
 #include <stdbool.h>
 #include <pthread.h>
 
-#define PORT 5050
+#define PORT 28772
