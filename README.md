@@ -4,8 +4,8 @@
 
 Command lines: <br />
 To clone/download: <br />
-/t	git clone -b branch_name git_link <br />
-/t	//git clone -b Part2_Adel https://github.com/RedhwaneBS/TinyDB.git <br />
+&nbsp;	git clone -b branch_name git_link <br />
+&nbsp;	//git clone -b Part2_Adel https://github.com/RedhwaneBS/TinyDB.git <br />
 
 
 To update FROM github:<br />
