@@ -14,10 +14,9 @@ To update FROM github:<br />
 
 
 To update GITHUB: <br />
-&emsp;	git ini t<br />
+&emsp;	git init <br />
 &emsp;	git add * <br />
 &emsp;	git commit -m <br />
 &emsp;	git push <br />
-&emsp;&emsp;		current project token : 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
 
 
