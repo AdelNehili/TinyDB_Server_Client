@@ -18,6 +18,6 @@ To update GITHUB: <br />
 &emsp;	git add * <br />
 &emsp;	git commit -m <br />
 &emsp;	git push <br />
-&emsp;&emsp;		current project token : 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
+&emsp;&emsp;		current project token : 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
 
 
