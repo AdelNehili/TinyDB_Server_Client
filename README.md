@@ -1,5 +1,10 @@
 # TinyDB
 
+<<<<<<< HEAD
+=======
+git clone -b branch_name git_link
+
+>>>>>>> c153deed85fb810c8cacf51c7121677441a7f0be
 Command lines:
 To clone/download:
 	git clone -b Part2_Adel https://github.com/RedhwaneBS/TinyDB.git
