@@ -1,7 +1,12 @@
 # TinyDB
 
-=======
+Useful command lines for the project:
+&emsp;	ps -T -p 3098
 
+
+=======
+GITHUB
+=======
 Command lines: <br />
 To clone/download: <br />
 &emsp;	git clone -b branch_name git_link <br />

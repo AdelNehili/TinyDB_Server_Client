@@ -3,6 +3,6 @@
 make clean
 
 git add *
-git commit -m 'bash comments'
+git commit -m "Bash comment"
 git push
 
