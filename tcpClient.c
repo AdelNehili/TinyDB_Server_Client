@@ -1,10 +1,24 @@
 #include "tcpCommon.h"
 
-int main(){
+int clientSocket;
 
-	int clientSocket, ret;
+void sig_handler(int signum){
+	char buffer[1024];
+	printf("\nJe vous fais mes adieux, camarades! : %d\n",signum);
+	strcpy(buffer,":exit\n");
+	send(clientSocket, buffer, strlen(buffer), 0);
+	sleep(0.5);
+	exit(0);
+}
+
+int main(){
+	signal(SIGINT,sig_handler);
+	signal(SIGUSR1,sig_handler);
+	
+	int ret;
 	struct sockaddr_in serverAddr;
 	char buffer[1024];
+	char buffer_recu[4096];
 
 	clientSocket = socket(AF_INET, SOCK_STREAM, 0);
 	if(clientSocket < 0){
@@ -29,17 +43,24 @@ int main(){
 		printf("Client: \t");
 		fgets(buffer, sizeof(buffer),stdin); //Recupere du STDIN et met tout dans un seul buffer
 		send(clientSocket, buffer, strlen(buffer), 0);
-
-		if(strcmp(buffer, ":exit") == 0){
+		
+		if(strcmp(buffer, ":exit\n") == 0){
 			close(clientSocket);
 			printf("[-]Disconnected from server.\n");
 			exit(1);
 		}
+		bzero(buffer, 1024);
 
-		if(recv(clientSocket, buffer, 1024, 0) < 0){
+		if(recv(clientSocket, buffer_recu, 4096, 0) < 0){
 			printf("[-]Error in receiving data.\n");
 		}else{
-			printf("Server: \t%s\n", buffer);
+			if(strcmp(buffer_recu, ":exit\n") == 0){
+				close(clientSocket);
+				printf("[-]Disconnected from server.\n");
+				exit(1);
+			}
+			printf("%s\n", buffer_recu);
+			bzero(buffer_recu, 4096);
 		}
 	}
 

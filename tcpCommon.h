@@ -7,6 +7,10 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdbool.h>
-#include <pthread.h>
 
+#include <pthread.h>
+#include <signal.h>
+
+#include <cerrno>
 #define PORT 28772
+

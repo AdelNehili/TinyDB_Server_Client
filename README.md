@@ -1,7 +1,11 @@
-# TinyDB
+# smalDB
 
-Useful command lines for the project:
-&emsp;	ps -T -p 3098
+Dans ce projet, vous trouverez le Makefile et tout ce qu'il faut pour lancer un server/client(s). De plus, si "gnome" est installé sur votre machine, vous pourrez directement lancer le script bash test.sh qui compile et crée 1 Server ayant accès à une db en .bin ainsi que deux Client pouvant envoyer des requêtes en pseudo-SQL.<br />
+Vous trouverez un .bin dans le dossier db_exemple.<br />
+
+Useful command lines for the project:<br />
+&emsp; ps aux : permet d'afficher tous les process en cours avec leur PID<br />
+&emsp;	ps -T -p PID : permet d'afficher tous les sub-process en cours avec du process correspondant au PID<br />
 
 
 =======
